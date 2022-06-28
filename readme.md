@@ -14,6 +14,6 @@ It's definitely easier to code using `system-verilog`, *but* it is not fully sup
 
 ## What has to be payed attention to?
 
-The students must be able to exactly show how the pipeline performs on lines 18 and 19. To be more precise, they have to show that there's no stall on the instruction on line 19.
+The students must be able to show exactly how the pipeline performs on lines 18 and 19. To be more precise, they have to show that there's no stall on the instruction on line 19.
 
 ### Have fun and do not cheat
