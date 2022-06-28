@@ -28,7 +28,7 @@ module testbench();
         if(dataadr === 84 & writedata === 7) begin
           $display("Simulation succeeded");
           $stop;
-        end else if (dataadr !== 80) begin
+        end else if ((dataadr !== 80) & (dataadr !== 88)) begin
           $display("Simulation failed");
           $stop;
         end
