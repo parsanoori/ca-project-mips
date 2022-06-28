@@ -10,7 +10,7 @@ After all the resulting architecture must be impelemented using either `verilog`
 
 ## What are the advantages and disadvantages of the `system-verilog`?
 
-It's definitely easier to code using `system-verilog`, *but* it is not fully supported by `iverilog` compiler. Hence if you want to use `iverilog` as you tool in this project, you have to chnage the given code to `verilog`.  
+It's definitely easier to code using `system-verilog`, *but* it is not fully supported by `iverilog` compiler. Hence if you want to use `iverilog` as you tool in this project, you have to change the given code to `verilog`.  
 
 ## What has to be payed attention to?
 
