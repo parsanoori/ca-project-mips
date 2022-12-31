@@ -1,0 +1,22 @@
+main:      ADDI $v0, $zero, 5     # initialize $v0 = 5
+           ADDI $v1, $zero, 12    # initialize $v1 = 12
+           ADDI $a3, $v1, -9      # $a3 = 12 - 9 = 3
+           OR $a0, $a3, $v0       # $a0 = 0b11 or 0b101 = 0v111 = 7
+           AND $a1, $v1, $a0      # $a1 = 0b1100 and 0b0111 = 0b0100 = 4
+           ADD $a1, $a1, $a0      # $a1 = 4 + 7 = 11
+           BEQ $a1, $a3, end      # if 3 == 11 go to around (not taken)
+           SLT $a0, $v1, $a0      # $a0 = 12 < 7 = 0
+           BEQ $a0, $0, aroud     # if 0 == 0 go to around (taken)
+           ADDI $a1, $zero, 0x0   # not ran
+around:    SLT $a0, $a3, $v0      # $a0 = 3 < 5 = 1
+           ADD $a3, $a0, $a1      # $a3 = 1 + 11 = 12
+           SUB $a3, $a3, $v0      # $a3 = 12 - 5 = 7
+           SLL $a3, $a3, 24       # $a3 = 7 << 24 = 0x07000000
+           SW $a3, 68($v1)        # fill address 80 with 0x07000000
+           LB $v0, 80($zero)      # load the byte at address 80 to $v0 = 7
+           JAL 0x13               # jump and link to end
+           ADDI $v0, $t1, 0x1111  # $v0 = 0x07000000 + 0x1111 = 0x07001111
+           SW $v0, 84($zero)      # store $v0 at address 84 = 0x1
+end:       LW $t1, 80($zero)      # load the word at address 80 to $t1 = 0x07000000
+           SW $t1, 88($zero)      # store $t1 at address 88 = 0x07000000
+           JR $ra                 # return to the caller
